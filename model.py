@@ -1,11 +1,13 @@
+import os
 import numpy as np
 import cv2
 from create_feature import *
 from calorie_calc import *
 import csv
+import json
 
 
-def testing():
+def testing(name):
     svm_model = cv2.ml.SVM_load('./svm_data.dat')
     feature_mat = []
     response = []
@@ -24,9 +26,10 @@ def testing():
     #         continue
     #     for i in range(21,26):
     # img_path = "./Dataset/images/Test_Images/"+str(j)+"_"+str(i)+".jpg"
-    # img_path = "./uploads/"+sys.argv[1]
-    img_path = "./uploads/"+"11_25.jpg"
-    print(img_path)
+    img_path = "./uploads/"+name
+    # print(img_path)
+    # img_path = "./uploads/"+"11_25.jpg"
+    # print(img_path)
     fea, farea, skinarea, fcont, pix_to_cm = readFeatureImg(img_path)
     pix_cm.append(pix_to_cm)
     fruit_contours.append(fcont)
@@ -48,6 +51,9 @@ def testing():
         mass, cal, cal_100 = getCalorie(result[i], volume)
         fruit_volumes.append(volume)
         fruit_calories.append(cal)
+        json_string={"dd":str(cal)}
+        json_object = json.dumps(json_string)
+        print(json_object)
         fruit_calories_100grams.append(cal_100)
         fruit_mass.append(mass)
 
@@ -63,18 +69,21 @@ def testing():
                 data = [str(image_names[i]), str(responses[i][0]), str(result[i][0]), str(fruit_volumes[i]), str(fruit_mass[i]), str(fruit_calories[i]), str(fruit_calories_100grams[i])]
             writer.writerow(data)
         outfile.close()
-    print("\nWrong predictions are:")
-    for i in range(0, len(mask)):
-        if mask[i][0] == False:	
-            print("(Actual Reponse)", responses[i][0], "(Output)", result[i][0], image_names[i])
+    # print("\nWrong predictions are:")
+    # for i in range(0, len(mask)):
+    #     if mask[i][0] == False:	
+    #         print("(Actual Reponse)", responses[i][0], "(Output)", result[i][0], image_names[i])
 
     correct = np.count_nonzero(mask)
-    print("\nAccuracy in food item classification: ",correct*100.0/result.size,"%")
+    #print("\nAccuracy in food item classification: ",correct*100.0/result.size,"%")
 
 
 
 if __name__ == '__main__':
     # training()
     # print("./uploads/"+sys.argv[1])
-    print("./uploads/"+"11_25.jpg")
-    testing()
+    # print("./uploads/"+"11_25.jpg")
+    # print("Hello")
+    testing(os.sys.argv[1])
+    # print("hello2")
+    
