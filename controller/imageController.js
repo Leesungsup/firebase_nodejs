@@ -21,9 +21,29 @@ var uploadImage1 = (req,res)=>{
             scriptPath: "",
             args: [req.files[0].originalname],
             // args: ['카레유', '20',req.files[0].originalname], // 파이썬 코드로 전달할 arguments
-          };
+        };
+        console.log(options); 
         // predict.py 파일을 실행 시킴
-        PythonShell.run("model.py", options, function (err, results) {
+        // PythonShell.run("model.py", options, function (err, results) {
+        //     if (err) throw err;
+        //     // 전달 받은 결과값을 찍어봄
+        //     console.log("dga"); 
+        //     // res.send(results);
+        //     console.log(typeof(results));
+        //     console.log(Object.keys(results))
+        //     console.log(results[0].dd);
+        //     // console.log(results[1]);
+        //     //let name = req.files[0].originalname;
+        //     let str= req.files[0].originalname.replace('/','');
+        //     str=req.files[0].originalname.replace('.','');
+        //     database.ref("approved_users/").child(str).update({name : results[0].dd.toString()}, function(error) {
+        //         if(error)
+        //             console.error(error)
+        //         else
+        //             console.log("success save !!");
+        //     });
+        // });
+        PythonShell.run("model1.py", options, function (err, results) {
             if (err) throw err;
             // 전달 받은 결과값을 찍어봄
             console.log("dga"); 
