@@ -23,6 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/api', require('./route/imageRoute'));
+app.use('/ocr', require('./route/ocrRoute'));
 
 // defining ports
 const port = 3000 || process.env.PORT;
