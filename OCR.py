@@ -113,7 +113,7 @@ def main():
     end = text.find('기초대사량') + 24
     stat10 = text[start:end]
 
-    json_string={"신장":str(stat1),"체중":stat2,"골격근량":stat3,"체수분":stat5,"단백질":stat6,"BMI":stat7,"체지방률":stat8,"복부지방률":stat9,"기초대사량":stat10}
+    json_string={"kidney":str(stat1),"weight":stat2,"muscle":stat3,"body_water":stat5,"protein":stat6,"BMI":stat7,"body_fat":stat8,"Abdominal_fat_percentage":stat9,"basal_metabolic":stat10}
     json_object = json.dumps(json_string)
     print(json_object)
     # print("신장",stat1)

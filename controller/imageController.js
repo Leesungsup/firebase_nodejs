@@ -89,7 +89,7 @@ var uploadImage1 = (req,res)=>{
                     //let name = req.files[0].originalname;
                     let str= req.files[0].originalname.replace('/','');
                     str=req.files[0].originalname.replace('.','');
-                    database.ref("approved_users/").child(str).update({name : results[0].dd.toString()}, function(error) {
+                    database.ref("calorie/").child(str).update({name : results[0].dd.toString()}, function(error) {
                         if(error)
                             console.error(error)
                         else

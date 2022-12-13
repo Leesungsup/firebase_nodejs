@@ -40,7 +40,7 @@ var ocrImage1 = (req,res)=>{
             //let name = req.files[0].originalname;
             let str= req.files[0].originalname.replace('/','');
             str=req.files[0].originalname.replace('.','');
-            database.ref("approved_users/").child(str).update({name : results[0]}, function(error) {
+            database.ref("OCR/").child(str).update({name : results[0]}, function(error) {
                 if(error)
                     console.error(error)
                 else
