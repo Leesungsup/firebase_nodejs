@@ -51,13 +51,13 @@ def getTextureFeature(img):
 
 if __name__ == '__main__':
     import sys
-    print(__doc__)
+    # print(__doc__)
     try: img_fn = sys.argv[1]
 
     except: img_fn = 'test.JPG'
     img = cv2.imread(img_fn)
     
-    print(getTextureFeature(img))
+    # print(getTextureFeature(img))
    
     cv2.waitKey()
     cv2.destroyAllWindows()

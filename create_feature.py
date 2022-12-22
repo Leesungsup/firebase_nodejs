@@ -40,6 +40,6 @@ def readFeatureImg(filename):
 
 if __name__ == '__main__':
     feature, areaFruit, areaSkin, fruitContour, pix_to_cm_multiplier = readFeatureImg("./Dataset/images/All_Images/1_12.jpg")
-    print(areaFruit, areaSkin)
-    print(fruitContour)
-    print(pix_to_cm_multiplier)
+    # print(areaFruit, areaSkin)
+    # print(fruitContour)
+    # print(pix_to_cm_multiplier)

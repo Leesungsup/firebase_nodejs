@@ -33,7 +33,7 @@ def getVolume(label, area, skin_area, pix_to_cm_multiplier, fruit_contour):
 	if label == 1 or label == 9 or label == 7 or label == 6 or label==12: #sphere-apple,tomato,orange,kiwi,onion
 		radius = np.sqrt(area_fruit/np.pi)
 		volume = (4/3)*np.pi*radius*radius*radius
-		print(area_fruit, radius, volume, skin_area)
+		# print(area_fruit, radius, volume, skin_area)
 	
 	if label == 2 or label == 10 or (label == 4 and area_fruit > 30): #cylinder like banana, cucumber, carrot
 		fruit_rect = cv2.minAreaRect(fruit_contour)
