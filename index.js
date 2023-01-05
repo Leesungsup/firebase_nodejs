@@ -21,7 +21,9 @@ app.use(bodyParser.json());
 
 // parsing request body
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.get("/",(req,res)=>{
+    res.send("hello!");
+});
 app.use('/api', require('./route/imageRoute'));
 app.use('/ocr', require('./route/ocrRoute'));
 
